@@ -3,6 +3,8 @@ using UnityEngine;
 public class ControlCube : MonoBehaviour
 {
     float cubeSpeed = 0.002f;
+    float steer = 0.03f;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -19,6 +21,14 @@ public class ControlCube : MonoBehaviour
         if (Input.GetKey(KeyCode.S))
         {
             transform.position -= transform.forward * cubeSpeed;
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            transform.Rotate(0f, -steer, 0f, Space.Self);
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            transform.Rotate(0f, steer, 0f, Space.Self);
         }
     }
 }
